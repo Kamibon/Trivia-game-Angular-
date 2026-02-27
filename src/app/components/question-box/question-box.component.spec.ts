@@ -12,6 +12,9 @@ describe('QuestionBoxComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(QuestionBoxComponent);
+    fixture.componentRef.setInput('question', 'ciao')
+    fixture.componentRef.setInput('answers', ['ciao', 'addio'])
+    fixture.componentRef.setInput('correct', 'ciao')
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

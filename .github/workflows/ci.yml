@@ -1,4 +1,4 @@
-name: Format Code on Push
+name: CI Workflow
 
 on:
   push:
@@ -8,9 +8,16 @@ on:
       - '**/*.ts'
       - '**/*.html'
       - '**/*.css'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.ts'
+      - '**/*.html'
+      - '**/*.css'
 
 jobs:
-  format:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,15 +27,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '22'
 
       - name: Install dependencies
         run: |
           npm install --force
 
+      - name: Run tests
+        run: |
+          npm run test -- --watch=false --browsers=ChromeHeadless
+
       - name: Format code with Prettier
         run: |
-          npm run format  # Esegui il comando di formattazione che hai definito nel package.json
+          npm run format
 
       - name: Commit and push changes (if any)
         run: |
