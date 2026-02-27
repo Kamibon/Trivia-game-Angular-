@@ -8,7 +8,7 @@ describe('QuestionsComponent', () => {
   let component: QuestionsComponent;
   let fixture: ComponentFixture<QuestionsComponent>;
 
-let httpMock: HttpTestingController;
+  let httpMock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
