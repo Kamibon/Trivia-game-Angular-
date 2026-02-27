@@ -1,0 +1,12 @@
+<div
+  class="h-screen w-screen bg-linear-to-r from-blue-400 to-red-500 flex flex-col gap-4 items-center justify-center"
+>
+  <h1 class="text-amber-400 text-4xl animate-pulse">Ti diamo il benvenuto su Trivial!</h1>
+  <button
+    (click)="this.router.navigate(['questions'])"
+    routerLink="questions"
+    class="rounded-2xl cursor-pointer bg-blue-400 hover:bg-red-500 text-sm hover:text-white px-4 py-1.5"
+  >
+    Inizia
+  </button>
+</div>

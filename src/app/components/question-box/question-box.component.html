@@ -1,0 +1,28 @@
+<div
+  class="rounded-2xl bg-linear-to-r flex flex-col gap-2 items-center justify-center to-blue-400 from-red-500 px-4 py-2"
+>
+  <span>{{ question() }}</span>
+  <div class="grid grid-cols-2 gap-2 w-full">
+    @for (item of answers(); track $index) {
+      <div
+        (click)="handleAnswer(item)"
+        [ngClass]="{
+          'cursor-pointer': true,
+          'rounded-2xl': true,
+          flex: true,
+          grow: true,
+          'hover:bg-amber-400': true,
+          'items-center': true,
+          'justify-center': true,
+          'px-1': true,
+          'py-2': true,
+          'bg-green-500': result() !== 'empty' && item === correct(),
+          'bg-red-500': result() !== 'empty' && item !== correct(),
+          'bg-white': result() === 'empty',
+        }"
+      >
+        <span>{{ item }}</span>
+      </div>
+    }
+  </div>
+</div>
